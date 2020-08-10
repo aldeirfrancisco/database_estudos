@@ -22,4 +22,8 @@ public class CategoriaService {
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ",  Tipo: " + Categoria.class.getName()));
 	}
+	public Categoria insert(Categoria obj) {
+		obj.setId(null);//objeto novo a ser persistido não devera existir no banco
+		return repro.save(obj);//si o id tiver um valor vai ser considerado uma atualizacao
+	}
 }
