@@ -26,4 +26,8 @@ public class CategoriaService {
 		obj.setId(null);//objeto novo a ser persistido não devera existir no banco
 		return repro.save(obj);//si o id tiver um valor vai ser considerado uma atualizacao
 	}
+	public Categoria update(Categoria obj) {
+		find(obj.getId());
+   return repro.save(obj);
+	}
 }
