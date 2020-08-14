@@ -5,11 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.aldeir.springProject.domain.Categoria;
 import com.aldeir.springProject.repositories.CategoriaRepository;
-import com.aldeir.springProject.resources.exception.DataIntegrityException;
 
 @Service
 public class CategoriaService {
@@ -46,4 +48,14 @@ public class CategoriaService {
 	
 		return repo.findAll();
 	}
+	//spring data (class page) encapsula informaçoes e operações sobre paginação
+	public Page<Categoria>findPage(Integer page, Integer linesPerPage, String orderBy, String direction){
+ //page conta paginas,  linesPerPage quantas linha vai quere ,orderBy qual atributo vai ordenar, direction qual dirreção vai que ordenar acendente ou decedente
+	//PageRequest objeto que vai prepara as informações para fazer a consulta que retorna a pagina de dados
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
+		return repo.findAll(pageRequest);
+		}
+		
+		
+	
 }

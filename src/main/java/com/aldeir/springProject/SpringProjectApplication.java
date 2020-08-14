@@ -2,7 +2,6 @@ package com.aldeir.springProject;
 
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +69,11 @@ public class SpringProjectApplication implements CommandLineRunner {
 	public  void run(String... args) throws Exception {
 		Categoria cat = new Categoria(null,"Informatica");
 		Categoria cat2 = new Categoria(null,"Escritorio");
+		Categoria cat3 = new Categoria(null,"Cama mesa e banho");
+		Categoria cat4 = new Categoria(null,"Eletrônico");
+		Categoria cat5 = new Categoria(null,"Jardinagem");
+		Categoria cat6 = new Categoria(null,"Decoração");
+		Categoria cat7 = new Categoria(null,"Perfumaria");
 		
 		Produto p1 = new Produto(null,"Computador", 2000.00);
 		
@@ -84,7 +88,7 @@ public class SpringProjectApplication implements CommandLineRunner {
 		cat.getProdutos().addAll(Arrays.asList(p1,p2,p3)); //associando produtos ao categoria
 		cat2.getProdutos().addAll(Arrays.asList(p2));
 		
-		categoriaRepository.saveAll(Arrays.asList(cat,cat2)); //salvando as categorias
+		categoriaRepository.saveAll(Arrays.asList(cat,cat2,cat3,cat4,cat5,cat6,cat7)); //salvando as categorias
 		produtoRepository.saveAll(Arrays.asList(p1,p2,p3));//salvando os produtos
 		
 		Estado est1 = new Estado(null, "Minas Gerais");
