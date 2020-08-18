@@ -33,9 +33,10 @@ public class CategoriaService {
 		return repo.save(obj);//si o id tiver um valor vai ser considerado uma atualizacao
 	}
 	public Categoria update(Categoria obj) {
-		find(obj.getId());
-   return repo.save(obj);
-	}
+		Categoria newObj =	find(obj.getId());
+		updateData(newObj, obj);
+	   return repo.save(obj);
+		}
 	public void delete(Integer id) {
 		find(id);
 		try {
@@ -60,5 +61,8 @@ public class CategoriaService {
 		public Categoria fromDTO(CategoriaDTO objDTO) {
 			return new Categoria(objDTO.getId(),objDTO.getNome());//converte obj categoriaDTO em obj categoria
 		}
-	
+		private  void updateData( Categoria newObj,  Categoria obj) {
+			newObj.setNome(obj.getNome());
+			
+		}
 }

@@ -40,7 +40,7 @@ public class Cliente implements Serializable{
 	@OneToMany(mappedBy = "cliente")
 	private List<Pedido> pedido = new ArrayList<>();
 	
-	private Cliente() {
+	public Cliente() {
 		
 	}
 
