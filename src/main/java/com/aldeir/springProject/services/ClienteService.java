@@ -57,7 +57,7 @@ public class ClienteService {
 			repo.deleteById(id);
 			
 		}catch (org.springframework.dao.DataIntegrityViolationException e) {
-			throw new DataIntegrityViolationException("Não é possível excluir porque há entidades relacionadas");
+			throw new DataIntegrityViolationException("Não é possível excluir porque há pedidos relacionadas");
 		}
 		}
 	public List<Cliente> findAll() {

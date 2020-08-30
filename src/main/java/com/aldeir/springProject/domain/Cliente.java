@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -28,8 +29,9 @@ public class Cliente implements Serializable{
 	private String email;
 	private String cpfOuCnpj;
 	private Integer tipo;
-	
-	@OneToMany(mappedBy = "cliente")//um cliente para varios endereço
+	// quando vc quiz barra a delete deixa sem o cascade
+	   //CascadeType.ALL diz que a ação que cliente receber vai refletir em cascata no endereço no caso aqui si um cliente for apagado seu endereço também será apagado
+	@OneToMany(mappedBy = "cliente", cascade =CascadeType.ALL )//um cliente para varios endereço
 	private List<Endereco> enderecos = new ArrayList<>();
 	
 	@ElementCollection
