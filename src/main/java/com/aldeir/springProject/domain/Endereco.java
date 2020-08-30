@@ -29,7 +29,7 @@ public class Endereco implements Serializable{
 	 @JoinColumn(name = "cliente_id")
 	 private Cliente cliente;
 	 
-	 @ManyToOne //muitos endereço para uma cidade
+	 @ManyToOne//muitos endereço para uma cidade
 	 @JoinColumn(name = "cidade_id")
 	 private Cidade cidade;//associação direcionada so o endereço conhece cidade a cidade não conhece o endereço dela
 	 
