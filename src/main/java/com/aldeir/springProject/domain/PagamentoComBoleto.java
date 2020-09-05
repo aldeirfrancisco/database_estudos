@@ -5,8 +5,10 @@ import java.util.Date;
 import javax.persistence.Entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @Entity
+@JsonTypeName("pagamentoComBoleto")
 public class PagamentoComBoleto extends Pagamento {
      
 	private static final long serialVersionUID = 1L;
@@ -16,8 +18,7 @@ public class PagamentoComBoleto extends Pagamento {
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dataPagamanto;
 	 
-	private PagamentoComBoleto() {
-	
+	public PagamentoComBoleto() {
 	}
 
 	//po ser um subClass o construtor e baseado na super class

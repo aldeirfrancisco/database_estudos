@@ -126,9 +126,7 @@ public class Cliente implements Serializable{
 		return serialVersionUID;
 	}
 
-	public void setTipo(Integer tipo) {
-		this.tipo = tipo;
-	}
+	
 
 	@Override
 	public int hashCode() {
